@@ -13,19 +13,18 @@ def create_author(n):
         author.objects.create(
             name=fake.name(),
             biography=fake.text(),
+            birth_date=fake.date(),
         )
     print(f"{n} Authors was added successufully")
     
   
 def create_book(n):
     fake=Faker()
-    money=['100','200','150','120','140','170']
-    date=['2018','2017','2019','2020','2021','2022','2023']
     for _ in range(n):
         book.objects.create(
             title=fake.name(),
-            price=f"{money[random.randint(0,5)]}",
-            publish_date= random.randint(date)
+            price=random.randint(100,200),
+            publish_date= fake.date(),
         )  
     print(f"{n} Books was added successufully")  
       
