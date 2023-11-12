@@ -16,7 +16,7 @@ class author(models.Model):
     
 class book(models.Model):
     title=models.CharField(max_length=50)
-    name=models.ForeignKey(author,on_delete=models.CASCADE,related_name='Book_Author',blank=True,null=True)
+    name=models.OneToOneField(author,on_delete=models.CASCADE,related_name='Book_Author',blank=True,null=True)
     publish_date=models.DateTimeField()
     price=models.IntegerField()
     slug=models.SlugField(null=True,blank=True)
