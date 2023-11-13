@@ -21,9 +21,9 @@ DataBase With 3 Tables
 
 Todo:
 
--- github repo for project
--- design models
--- add dummy data
+-- github repo for project ==Done
+-- design models ==Done
+-- add dummy data ==Done
 -- generate api:
   1 -- books:
      -- list of all books

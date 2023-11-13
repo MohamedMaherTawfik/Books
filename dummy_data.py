@@ -20,8 +20,6 @@ def create_author(n):
   
 def create_book(n):
     fake=Faker()
-    money=['100','200','150','120','140','170']
-    date=['2018','2017','2019','2020','2021','2022','2023']
     for _ in range(n):
         book.objects.create(
             title=fake.name(),
@@ -47,6 +45,6 @@ def create_review(n):
   
         
         
-#create_author(25)
+#create_author(75)
 #create_book(100)
 #create_review(30)        
