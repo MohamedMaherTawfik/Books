@@ -8,7 +8,7 @@ from .models import book,author
 
 
 
-class booklistapi(generics.CreateAPIView):
+class booklistapi(generics.ListAPIView):
     queryset=book.objects.all()
     serializer_class=bookserializer
     filter_backends=[DjangoFilterBackend,filters.SearchFilter,filters.OrderingFilter]
@@ -24,3 +24,16 @@ class bookdetailapi(generics.RetrieveUpdateDestroyAPIView):
     
     
     
+    
+class Authorlistapi(generics.ListAPIView):
+    queryset=author.objects.all()
+    serializer_class=Authorsserializers
+    filter_backends=[DjangoFilterBackend,filters.SearchFilter,filters.OrderingFilter]
+    filterset_fields=['name','birth_date','biography']
+    search_fields =['name']
+    permission_classes = [IsAuthenticated]
+    
+
+class Authordetailapi(generics.RetrieveUpdateDestroyAPIView):
+    queryset=author.objects.all()
+    serializer_class=Authorsserializers  
