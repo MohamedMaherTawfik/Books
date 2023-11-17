@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import author,book,review
+from .models import Author,Book,Review
 # Register your models here.
 
 
@@ -16,6 +16,6 @@ class Review_Admin(admin.ModelAdmin):
     
     
 
-admin.site.register(book,book_Admin)
-admin.site.register(author)
-admin.site.register(review,Review_Admin)
+admin.site.register(Book,book_Admin)
+admin.site.register(Author)
+admin.site.register(Review,Review_Admin)

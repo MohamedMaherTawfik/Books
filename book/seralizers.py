@@ -1,21 +1,21 @@
 from rest_framework import serializers
-from .models import book,author,review
+from .models import Book,Author,Review
 
 
 class bookserializer(serializers.ModelSerializer):
     class Meta:
-        model= book
+        model= Book
         fields = '__all__' 
 
 
 
 class Authorsserializers(serializers.ModelSerializer):
     class Meta:
-        model=author
+        model=Author
         fields= '__all__'
         
         
 class Rewviewserializer(serializers.ModelSerializer):
     class Meta:
-        model=review 
+        model=Review 
         fields= '__all__' 
