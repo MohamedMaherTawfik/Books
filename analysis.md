@@ -26,10 +26,14 @@ Todo:
 -- add dummy data ==Done
 -- generate api:
   1 -- books:
-     -- list of all books ==Done
-     -- details of all books =Done
+     -- list of all books == Done
+     -- details of all books == Done
 يعني api شبه اللي عملناها    
 
   2 -- Authors:
      -- list of all authors  == Done   
-     -- detail about every author  == Done 
+     -- detail of all author == Done 
+
+  3 -- Review:
+     --List of all Reviews == Done
+     -- Detail of All Review == Done
