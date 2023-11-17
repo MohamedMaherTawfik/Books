@@ -2,8 +2,8 @@ from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import filters
 from rest_framework import generics
-from .seralizers import bookserializer,Authorsserializers
-from .models import book,author
+from .seralizers import bookserializer,Authorsserializers,Rewviewserializer
+from .models import book,author,review
 
 
 
@@ -37,3 +37,21 @@ class Authorlistapi(generics.ListAPIView):
 class Authordetailapi(generics.RetrieveUpdateDestroyAPIView):
     queryset=author.objects.all()
     serializer_class=Authorsserializers  
+    
+    
+    
+    
+    
+class Reviewlistapi(generics.ListAPIView):
+    queryset=review.objects.all()
+    serializer_class=Rewviewserializer   
+    filter_backends=[DjangoFilterBackend,filters.SearchFilter,filters.OrderingFilter] 
+    filterset_fields=['reviewer_name','rating']
+    search_fields=['rating']
+    permission_classes=[IsAuthenticated]
+    
+    
+    
+class ReviewDetailApi(generics.RetrieveUpdateDestroyAPIView):
+    queryset=review.objects.all()
+    serializer_class=Rewviewserializer
