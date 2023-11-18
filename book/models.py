@@ -11,7 +11,7 @@ class Author(models.Model):
     birth_date=models.DateField(null=False,blank=False)
     biography=models.TextField(max_length=500,null=False,blank=True)
     
-    def __str__(self) -> str:
+    def __str__(self) :
         return self.name
     
     
@@ -21,7 +21,7 @@ class Book(models.Model):
     publish_date=models.DateTimeField(default=timezone.now)
     price=models.IntegerField()
     
-    def __str__(self) -> str:
+    def __str__(self):
         return self.title    
     
     
@@ -31,5 +31,5 @@ class Review(models.Model):
     content=models.TextField(max_length=500,null=False,blank=False)
     rating=models.IntegerField()
     
-    def __str__(self) -> str:
+    def __str__(self):
         return self.reviewer_name
