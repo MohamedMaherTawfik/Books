@@ -17,7 +17,7 @@ class Author(models.Model):
     
 class Book(models.Model):
     title=models.CharField(max_length=50,null=False,blank=False)
-    name=models.ForeignKey(Author,on_delete=models.SET_NULL,null=True)
+    author=models.ForeignKey(Author,on_delete=models.SET_NULL,null=True)
     publish_date=models.DateTimeField(default=timezone.now)
     price=models.IntegerField()
     
@@ -26,7 +26,7 @@ class Book(models.Model):
     
     
 class Review(models.Model):
-    name=models.ForeignKey(Book,on_delete=models.CASCADE)
+    book=models.ForeignKey(Book,on_delete=models.CASCADE)
     reviewer_name=models.CharField(max_length=50,null=False,blank=False)
     content=models.TextField(max_length=500,null=False,blank=False)
     rating=models.IntegerField()

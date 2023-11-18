@@ -22,6 +22,7 @@ def create_book(n):
     fake=Faker()
     for _ in range(n):
         Book.objects.create(
+            author=Author.objects.all().order_by('?')[0],
             title=fake.name(),
             price=random.randint(100,200),
             publish_date= fake.date(),
@@ -34,7 +35,7 @@ def create_review(n):
     
     for _ in range(n):
         Review.objects.create(
-            name=Book.objects.all().order_by('?')[0],
+            book=Book.objects.all().order_by('?')[0],
             reviewer_name=fake.name(),
             content=fake.text(),
             rating=random.randint(1,5),
@@ -45,6 +46,6 @@ def create_review(n):
   
         
         
-#create_author(75)
-#create_book(10)
-#create_review(10)        
+#create_author(50)
+#create_book(50)
+create_review(500)        
