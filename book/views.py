@@ -7,10 +7,11 @@ from rest_framework import status
 from rest_framework.response import Response
 
 
-ERORR_404 = {
+ERORR_404_NotFound = {
     "status": '404 not found',
     "message": "something went error, this page not found or the object you want has been deleted"
 }
+
 
 
 
@@ -31,7 +32,7 @@ class BookDetailAPI(generics.RetrieveUpdateDestroyAPIView):
         try:
             book=Book.objects.get(id=kwargs['pk'])
         except Author.DoesNotExist:
-            return Response(ERORR_404,status=status.HTTP_404_NOT_FOUND)
+            return Response(ERORR_404_NotFound,status=status.HTTP_404_NOT_FOUND)
         book_serializer=BookSerializer(book)
         reviews=Review.objects.filter(book=book) 
         reviews_serializer=RewviewSerializer(reviews, many=True)
@@ -59,7 +60,7 @@ class AuthorDetailAPI(generics.RetrieveUpdateDestroyAPIView):
         try:
             author=Author.objects.get(id=kwargs['pk'])
         except Author.DoesNotExist:
-            return Response(ERORR_404,status=status.HTTP_404_NOT_FOUND)
+            return Response(ERORR_404_NotFound,status=status.HTTP_404_NOT_FOUND)
         author_serializer=AuthorSerializers(author)
         books=Book.objects.filter(author=author)
         book_serializer=BookSerializer(books, many=True)
@@ -69,3 +70,6 @@ class AuthorDetailAPI(generics.RetrieveUpdateDestroyAPIView):
         },status=status.HTTP_200_OK)
     
     
+
+
+
