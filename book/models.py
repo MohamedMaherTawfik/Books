@@ -5,7 +5,7 @@ from django.utils.text import slugify
 # Create your models here.
 
 
-
+#author 
 class Author(models.Model):
     name=models.CharField(max_length=50,null=False,blank=False)
     birth_date=models.DateField(null=False,blank=False)
@@ -14,7 +14,7 @@ class Author(models.Model):
     def __str__(self) :
         return self.name
     
-    
+#book    
 class Book(models.Model):
     title=models.CharField(max_length=50,null=False,blank=False)
     author=models.ForeignKey(Author,on_delete=models.SET_NULL,null=True)
@@ -24,7 +24,7 @@ class Book(models.Model):
     def __str__(self):
         return self.title    
     
-    
+#review   
 class Review(models.Model):
     book=models.ForeignKey(Book,on_delete=models.CASCADE)
     reviewer_name=models.CharField(max_length=50,null=False,blank=False)
@@ -33,3 +33,5 @@ class Review(models.Model):
     
     def __str__(self):
         return self.reviewer_name
+    
+    
