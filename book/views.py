@@ -13,8 +13,6 @@ ERORR_404_NotFound = {
 }
 
 
-
-
 class CreateListBookApiView(generics.ListCreateAPIView):
     queryset=Book.objects.all()
     serializer_class=BookSerializer
